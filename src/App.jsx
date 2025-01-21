@@ -10,10 +10,17 @@ function App() {
         e.preventDefault();
         setMedalList([...medalList, value]);
     };
+
+    const handleDeleteList = (country) => {
+      const deletedList = medalList.filter((m) => {
+        return m.country != country;
+      })
+      setMedalList(deletedList);
+    }
     return (
         <>
             <MedalForm handleSubmit={handleSubmit} medalList={medalList} />
-            <MedalList medalList={medalList}/>
+            <MedalList handleDeleteList={handleDeleteList} medalList={medalList} />
         </>
     );
 }

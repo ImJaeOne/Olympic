@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const MedalList = ({ medalList }) => {
+export const MedalList = ({ medalList, handleDeleteList }) => {
     return (
         <div>
             <div>MedalList</div>
@@ -20,13 +20,13 @@ export const MedalList = ({ medalList }) => {
                     <tbody>
                         {medalList.map((m) => {
                             return (
-                                <tr>
+                                <tr key={m.country}>
                                     <td>{m.country}</td>
                                     <td>{m.gold}</td>
                                     <td>{m.silver}</td>
                                     <td>{m.bronze}</td>
                                     <td>
-                                        <button>삭제</button>
+                                        <button onClick={() => handleDeleteList(m.country)}>삭제</button>
                                     </td>
                                 </tr>
                             );
