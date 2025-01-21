@@ -1,4 +1,5 @@
 import React from 'react';
+import MedalItem from './MedalItem';
 
 export const MedalList = ({ medalList, handleDeleteList }) => {
     return (
@@ -19,17 +20,7 @@ export const MedalList = ({ medalList, handleDeleteList }) => {
                     </thead>
                     <tbody>
                         {medalList.map((m) => {
-                            return (
-                                <tr key={m.country}>
-                                    <td>{m.country}</td>
-                                    <td>{m.gold}</td>
-                                    <td>{m.silver}</td>
-                                    <td>{m.bronze}</td>
-                                    <td>
-                                        <button onClick={() => handleDeleteList(m.country)}>삭제</button>
-                                    </td>
-                                </tr>
-                            );
+                            return <MedalItem key={m.country} handleDeleteList={handleDeleteList} medalItem={m} />;
                         })}
                     </tbody>
                 </table>
