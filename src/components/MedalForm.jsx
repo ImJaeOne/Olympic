@@ -10,15 +10,25 @@ const MedalForm = ({ handleSubmit }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setMedalItem({ ...medalItem, [name]: value });
+        setMedalItem({ ...medalItem, [name]: value.trim() });
     };
+
+    const validateForm = () => {
+        if(!medalItem.country){
+            alert('국가명을 입력해주세요');
+            return false;
+        }
+        return true;
+    }
 
     return (
         <div>
             <h2>2024 파리 올림픽</h2>
             <form
                 onSubmit={(e) => {
-                    handleSubmit(e, medalItem);
+                    if(!validateForm())return;
+                    const action = e.nativeEvent.submitter.name;
+                    handleSubmit(e, medalItem, action);
                     setMedalItem({
                         country: '',
                         gold: 0,
@@ -35,7 +45,12 @@ const MedalForm = ({ handleSubmit }) => {
                 <input type="number" name="silver" value={medalItem.silver} onChange={handleChange} />
                 동메달
                 <input type="number" name="bronze" value={medalItem.bronze} onChange={handleChange} />
-                <button type="submit">Add</button>
+                <button type="submit" name="add">
+                    Add
+                </button>
+                <button type="submit" name="update">
+                    Update
+                </button>
             </form>
         </div>
     );

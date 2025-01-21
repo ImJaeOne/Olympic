@@ -11,6 +11,7 @@ export const MedalList = ({ medalList, handleDeleteList }) => {
                 <table>
                     <thead>
                         <tr>
+                            <th>Rank</th>
                             <th>국가명</th>
                             <th>금메달</th>
                             <th>은메달</th>
@@ -19,8 +20,8 @@ export const MedalList = ({ medalList, handleDeleteList }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {medalList.map((m) => {
-                            return <MedalItem key={m.country} handleDeleteList={handleDeleteList} medalItem={m} />;
+                        {medalList.sort((a,b) => b.gold - a.gold).map((m, i) => {
+                            return <MedalItem key={m.country} handleDeleteList={handleDeleteList} medalItem={m} rank={i+1}/>;
                         })}
                     </tbody>
                 </table>

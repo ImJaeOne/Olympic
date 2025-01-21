@@ -6,13 +6,22 @@ import './App.css';
 function App() {
     const [medalList, setMedalList] = useState([]);
 
-    const handleSubmit = (e, value) => {
+    const handleSubmit = (e, value, action) => {
         e.preventDefault();
-        if (medalList.some((m) => m.country === value.country)) {
-            alert('이미 등록되어있습니다. 업데이트해주세요.');
-            return;
+        if (action === 'add') {
+            if (medalList.some((m) => m.country === value.country)) {
+                alert('이미 등록되어있습니다. 업데이트해주세요.');
+                return;
+            }
+            setMedalList([...medalList, value]);
+        } else if (action === 'update') {
+            if (!medalList.some((m) => m.country === value.country)) {
+                alert('등록된 나라가 없습니다. 등록해주세요');
+                return;
+            }
+            const updatedList = medalList.map((m) => (m.country === value.country ? { ...value } : m));
+            setMedalList(updatedList);
         }
-        setMedalList([...medalList, value]);
     };
 
     const handleDeleteList = (country) => {

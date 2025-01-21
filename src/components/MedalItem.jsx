@@ -1,8 +1,9 @@
 import React from 'react';
 
-export const MedalItem = ({ handleDeleteList, medalItem }) => {
+export const MedalItem = ({ handleDeleteList, medalItem, rank }) => {
     return (
         <tr key={medalItem.country}>
+            <td>{rank}</td>
             <td>{medalItem.country}</td>
             <td>{medalItem.gold}</td>
             <td>{medalItem.silver}</td>
