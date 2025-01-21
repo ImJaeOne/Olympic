@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import MedalForm from './components/MedalForm';
+import MedalList from './components/MedalList';
 import './App.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     return (
         <>
             <MedalForm handleSubmit={handleSubmit} medalList={medalList} />
+            <MedalList/>
         </>
     );
 }
