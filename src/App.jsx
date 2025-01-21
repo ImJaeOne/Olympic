@@ -13,7 +13,7 @@ function App() {
     return (
         <>
             <MedalForm handleSubmit={handleSubmit} medalList={medalList} />
-            <MedalList/>
+            <MedalList medalList={medalList}/>
         </>
     );
 }
