@@ -10,13 +10,23 @@ const MedalForm = ({ handleSubmit }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setMedalItem({...medalItem, [name]: value });
+        setMedalItem({ ...medalItem, [name]: value });
     };
 
     return (
         <div>
             <h2>2024 파리 올림픽</h2>
-            <form onSubmit={(e) => handleSubmit(e, medalItem)}>
+            <form
+                onSubmit={(e) => {
+                    handleSubmit(e, medalItem);
+                    setMedalItem({
+                        country: '',
+                        gold: 0,
+                        silver: 0,
+                        bronze: 0,
+                    });
+                }}
+            >
                 국가명
                 <input type="text" name="country" value={medalItem.country} onChange={handleChange} />
                 금메달

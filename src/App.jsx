@@ -8,18 +8,22 @@ function App() {
 
     const handleSubmit = (e, value) => {
         e.preventDefault();
+        if (medalList.some((m) => m.country === value.country)) {
+            alert('이미 등록되어있습니다. 업데이트해주세요.');
+            return;
+        }
         setMedalList([...medalList, value]);
     };
 
     const handleDeleteList = (country) => {
-      const deletedList = medalList.filter((m) => {
-        return m.country != country;
-      })
-      setMedalList(deletedList);
-    }
+        const deletedList = medalList.filter((m) => {
+            return m.country !== country;
+        });
+        setMedalList(deletedList);
+    };
     return (
         <>
-            <MedalForm handleSubmit={handleSubmit} medalList={medalList} />
+            <MedalForm handleSubmit={handleSubmit} />
             <MedalList handleDeleteList={handleDeleteList} medalList={medalList} />
         </>
     );
