@@ -6,6 +6,7 @@ import './App.css';
 function App() {
     const [medalList, setMedalList] = useState([]);
 
+
     const handleSubmit = (e, value, action) => {
         e.preventDefault();
         if (action === 'add') {
@@ -32,6 +33,7 @@ function App() {
     };
     return (
         <>
+            <h2>2024 파리 올림픽</h2>
             <MedalForm handleSubmit={handleSubmit} />
             <MedalList handleDeleteList={handleDeleteList} medalList={medalList} />
         </>
