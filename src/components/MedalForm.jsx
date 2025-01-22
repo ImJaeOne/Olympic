@@ -3,9 +3,9 @@ import { React, useState } from 'react';
 const MedalForm = ({ handleSubmit }) => {
     const [medalItem, setMedalItem] = useState({
         country: '',
-        gold: 0,
-        silver: 0,
-        bronze: 0,
+        gold: '',
+        silver: '',
+        bronze: '',
     });
 
     const handleChange = (e) => {

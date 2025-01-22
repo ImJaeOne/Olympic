@@ -1,42 +1,16 @@
 import { React, useState } from 'react';
 import MedalItem from './MedalItem';
+import { sortByMode, sortByRank } from '../utils/medalUtils';
 
 export const MedalList = ({ medalList, handleDeleteList }) => {
     const [mode, setMode] = useState('sortByGold');
+
     const handleMode = (e) => {
         setMode(e.target.value);
     };
-    const sortMedalList = [...medalList].sort((a, b) => {
-        if (mode === 'sortByGold') {
-            return b.gold - a.gold;
-        } else if (mode === 'sortByTotal') {
-            const totalA = a.gold + a.silver + a.bronze;
-            const totalB = b.gold + b.silver + b.bronze;
-            return totalB - totalA;
-        }
-        return 0;
-    });
-    let rank = 1;
-    let prevMedals = null;
-    let rankSkip = 1;
-    const sortByRank = sortMedalList.map((m, index) => {
-        if (
-            prevMedals &&
-            prevMedals.gold === m.gold &&
-            prevMedals.silver === m.silver &&
-            prevMedals.bronze === m.bronze
-        ) {
-            m.rank = rank;
-            rankSkip++;  
-        } else {
-            m.rank = rank;
-            rank += rankSkip; 
-            rankSkip = 1;  
-        }
-        prevMedals = { gold: m.gold, silver: m.silver, bronze: m.bronze };
-        console.log(m);
-        return m;
-    });
+
+    const sortMedalListByMode = sortByMode(medalList, mode);
+    const sortMedalListByRank = sortByRank(sortMedalListByMode, mode);
     return (
         <div>
             <div>MedalList</div>
@@ -66,14 +40,8 @@ export const MedalList = ({ medalList, handleDeleteList }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {sortByRank.map((m) => {
-                            return (
-                                <MedalItem
-                                    key={m.country}
-                                    handleDeleteList={handleDeleteList}
-                                    medalItem={m}
-                                />
-                            );
+                        {sortMedalListByRank.map((m) => {
+                            return <MedalItem key={m.country} handleDeleteList={handleDeleteList} medalItem={m} />;
                         })}
                     </tbody>
                 </table>
