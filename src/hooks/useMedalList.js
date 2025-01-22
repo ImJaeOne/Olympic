@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { setStorage, getStorage, deleteStorageItem } from '../services/storage';
 
 export const useMedalList = (key) => {
-    const [medalList, setMedalList] = useState(getStorage(key));
+    const [medalList, setMedalList] = useState(getStorage(key) || []);
 
     const addMedal = (value) => {
         if (value.country === '' || value.gold === '' || value.silver === '' || value.bronze === '') {
