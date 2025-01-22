@@ -41,7 +41,6 @@ export const sortByRank = (sortedMedals, mode) => {
             }
             prevMedals = { gold: m.gold, silver: m.silver, bronze: m.bronze };
         }
-        console.log(m);
         return m;
     });
 };

@@ -16,18 +16,6 @@ export const getStorage = (key) => {
     }
 };
 
-export const updateStorage = (key, value) => {
-    try{
-        const getStorageList = getStorage(key) || [];
-        const updateListItem = getStorageList.map((item) => {
-            return item.country === value.country ? value : item
-        });
-        getStorage(key, updateListItem);
-    } catch(err){
-        console.error('Failed to updateStorage : ', err);
-    }
-}
-
 export const deleteStorageItem = (key, country) => {
     try {
         const getStorageList = getStorage(key) || [];

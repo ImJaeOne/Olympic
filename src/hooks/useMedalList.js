@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { setStorage, getStorage, updateStorage, deleteStorageItem } from '../services/storage';
+import { setStorage, getStorage, deleteStorageItem } from '../services/storage';
 
 export const useMedalList = (key) => {
     const [medalList, setMedalList] = useState(getStorage(key));
@@ -29,7 +29,7 @@ export const useMedalList = (key) => {
         }
         const updatedList = medalList.map((m) => (m.country === value.country ? { ...value } : m));
         setMedalList(updatedList);
-        updateStorage(key, updatedList);
+        setStorage(key, updatedList);
     };
 
     const deleteMedal = (country) => {

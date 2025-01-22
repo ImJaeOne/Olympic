@@ -22,19 +22,21 @@ const MedalForm = ({ handleSubmit }) => {
         return true;
     };
 
+    const handleForSubmit = (e) => {
+        if (!validateForm()) return;
+        const action = e.nativeEvent.submitter.name;
+        handleSubmit(e, medalItem, action);
+        setMedalItem({
+            country: '',
+            gold: 0,
+            silver: 0,
+            bronze: 0,
+        });
+    }
+
     return (
         <form
-            onSubmit={(e) => {
-                if (!validateForm()) return;
-                const action = e.nativeEvent.submitter.name;
-                handleSubmit(e, medalItem, action);
-                setMedalItem({
-                    country: '',
-                    gold: 0,
-                    silver: 0,
-                    bronze: 0,
-                });
-            }}
+            onSubmit={handleForSubmit}
         >
             국가명
             <input type="text" name="country" value={medalItem.country} onChange={handleChange} />
