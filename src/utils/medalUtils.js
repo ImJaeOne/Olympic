@@ -28,8 +28,20 @@ export const sortByRank = (sortedMedals, mode) => {
             }
             prevMedals = { gold: m.gold, silver: m.silver, bronze: m.bronze };
         } else if (mode === 'sortByTotal') {
-            m.rank = index + 1;
+            if (
+                index === 0 ||
+                (prevMedals && prevMedals.gold + prevMedals.silver + prevMedals.bronze === m.gold + m.silver + m.bronze)
+            ) {
+                m.rank = rank;
+                rankSkip++;
+            } else {
+                rank += rankSkip;
+                m.rank = rank;
+                rankSkip = 1;
+            }
+            prevMedals = { gold: m.gold, silver: m.silver, bronze: m.bronze };
         }
+        console.log(m);
         return m;
     });
 };
