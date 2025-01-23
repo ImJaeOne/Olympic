@@ -20,6 +20,10 @@ export const sortByMode = (medalList, mode) => {
             } else {
                 if (b.gold !== a.gold) {
                     return b.gold - a.gold;
+                } else if (b.silver !== a.silver) {
+                    return b.silver - a.silver;
+                } else if (b.bronze !== a.bronze) {
+                    return b.bronze - a.bronze;
                 } else {
                     return a.country.localeCompare(b.country);
                 }
