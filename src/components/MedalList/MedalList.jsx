@@ -1,5 +1,4 @@
 import { React, useState } from 'react';
-import MedalItem from '../MedalItem/MedalItem.jsx';
 import RadioForm from '../RadioForm/RadioForm.jsx';
 import MedalTable from '../MedalTable/MedalTable.jsx';
 import { sortByMode, sortByRank } from '../../utils/medalUtils';

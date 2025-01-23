@@ -1,5 +1,6 @@
 import { React, useState } from 'react';
 import './MedalForm.css';
+import MedalInput from '../MedalInput/MedalInput';
 
 const MedalForm = ({ handleSubmit }) => {
     const [medalItem, setMedalItem] = useState({
@@ -37,48 +38,18 @@ const MedalForm = ({ handleSubmit }) => {
 
     return (
         <form onSubmit={handleForSubmit} className="medal-form">
-            <div className="medal-form-input-wrap">
+            <MedalInput medalItem={medalItem} name={'country'} handleChange={handleChange}>
                 국가명
-                <input
-                    className="medal-form-input"
-                    type="text"
-                    name="country"
-                    value={medalItem.country}
-                    onChange={handleChange}
-                />
-            </div>
-
-            <div className="medal-form-input-wrap">
+            </MedalInput>
+            <MedalInput medalItem={medalItem} name={'gold'} handleChange={handleChange}>
                 금메달
-                <input
-                    className="medal-form-input"
-                    type="number"
-                    name="gold"
-                    value={medalItem.gold}
-                    onChange={handleChange}
-                />
-            </div>
-
-            <div className="medal-form-input-wrap">
-                <span>은메달</span>
-                <input
-                    className="medal-form-input"
-                    type="number"
-                    name="silver"
-                    value={medalItem.silver}
-                    onChange={handleChange}
-                />
-            </div>
-            <div className="medal-form-input-wrap">
+            </MedalInput>
+            <MedalInput medalItem={medalItem} name={'silver'} handleChange={handleChange}>
+                은메달
+            </MedalInput>
+            <MedalInput medalItem={medalItem} name={'bronze'} handleChange={handleChange}>
                 동메달
-                <input
-                    className="medal-form-input"
-                    type="number"
-                    name="bronze"
-                    value={medalItem.bronze}
-                    onChange={handleChange}
-                />
-            </div>
+            </MedalInput>
             <div className="medal-form-btn-wrap">
                 <button className="medal-form-btn" type="submit" name="add">
                     Add
