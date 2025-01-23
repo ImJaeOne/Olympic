@@ -1,0 +1,8 @@
+.medal-item-btn{
+    background-color: #76c4e3;
+    color: white;
+}
+
+.medal-item-btn:hover{
+    background-color: #58a8c8; 
+}
