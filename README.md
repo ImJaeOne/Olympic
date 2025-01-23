@@ -47,6 +47,9 @@
 #### 문제 상황
 - 금메달과 총메달 수로 정렬은 간단하지만, 동률일 경우 어떻게 정렬할 것인지...?
   [금메달/총 메달 수 기준으로 정렬하기](https://dlawi0108.tistory.com/46)
+  
+  <br/>
+  
 ![sort](https://github.com/user-attachments/assets/e3eeab7d-b305-4a87-a8f3-41fc7ad37c74)
 
 
