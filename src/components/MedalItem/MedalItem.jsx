@@ -11,7 +11,7 @@ export const MedalItem = ({ handleDeleteList, medalItem }) => {
             <td>{medalItem.gold + medalItem.silver + medalItem.bronze}</td>
             <td>
                 <button className="medal-item-btn" onClick={() => handleDeleteList(medalItem.country)}>
-                    삭제
+                    Delete
                 </button>
             </td>
         </tr>
