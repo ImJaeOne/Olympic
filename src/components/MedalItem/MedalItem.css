@@ -6,3 +6,11 @@
 .medal-item-btn:hover{
     background-color: #58a8c8; 
 }
+
+.medal-item-btn:focus {
+    outline: none;
+}
+
+.medal-item-btn:active {
+    background-color: #3f8aa3;
+}
