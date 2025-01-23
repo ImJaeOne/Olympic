@@ -26,7 +26,7 @@ export const MedalList = ({ medalList, handleDeleteList }) => {
                                 checked={mode === 'sortByGold'}
                                 onChange={handleMode}
                             />
-                            금메달
+                            <span>Gold</span>
                         </label>
                         <label>
                             <input
@@ -35,9 +35,10 @@ export const MedalList = ({ medalList, handleDeleteList }) => {
                                 checked={mode === 'sortByTotal'}
                                 onChange={handleMode}
                             />
-                            총메달
+                            <span>Total</span>
                         </label>
                     </form>
+
                     <table className="medal-list-table">
                         <thead>
                             <tr>
