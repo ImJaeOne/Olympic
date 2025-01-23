@@ -13,8 +13,9 @@ const validateMedalForm = (value, medalList) => {
 }
 
 export const useMedalList = (key) => {
-    const [medalList, setMedalList] = useState(getStorage(key) || []);
-
+    const [medalList, setMedalList] = useState(() => {
+        return getStorage(key) || []
+    });
     const addMedal = (value) => {
         validateMedalForm(value, medalList);
         const updatedList = [...medalList, value];

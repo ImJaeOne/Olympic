@@ -25,6 +25,7 @@ const MedalForm = ({ handleSubmit }) => {
     };
 
     const handleForSubmit = (e) => {
+        e.preventDefault();
         if (!validateForm()) return;
         const action = e.nativeEvent.submitter.name;
         handleSubmit(e, medalItem, action);

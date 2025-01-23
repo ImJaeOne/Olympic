@@ -8,7 +8,6 @@ function App() {
     const { medalList, addMedal, updateMedal, deleteMedal } = useMedalList('medalListStorage');
 
     const handleSubmit = (e, value, action) => {
-        e.preventDefault();
         if (action === 'add') {
             addMedal(value);
         } else if (action === 'update') {
