@@ -1,0 +1,65 @@
+body {
+    background-color: #f4f4f4; 
+    color: #333; 
+    font-family: Arial, sans-serif;
+}
+
+.medal-form {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    gap: 10px;
+}
+
+.medal-form-input-wrap {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-weight: bolder;
+}
+
+.medal-form-input {
+    padding: 10px;
+    border: 1px solid #f4f4f4;
+    border-radius: 5px;
+    color: #333;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1), inset -2px -2px 5px rgba(255, 255, 255, 0.7);
+}
+
+.medal-form-input:focus {
+    border-color: #76c4e3;
+    outline: none;
+}
+
+.medal-form-btn-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.medal-form-btn {
+    height: 50%;
+    padding: 10px 15px;
+    background-color: #76c4e3;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.medal-form-btn:hover {
+    background-color: #58a8c8; 
+}
+
+.medal-form-btn:focus {
+    outline: none;
+}
+
+.medal-form-btn:active {
+    background-color: #3f8aa3; 
+}
