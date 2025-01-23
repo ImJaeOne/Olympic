@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import MedalItem from '../MedalItem/MedalItem.jsx';
 import RadioForm from '../RadioForm/RadioForm.jsx';
+import MedalTable from '../MedalTable/MedalTable.jsx';
 import { sortByMode, sortByRank } from '../../utils/medalUtils';
 import './MedalList.css';
 
@@ -20,25 +21,7 @@ export const MedalList = ({ medalList, handleDeleteList }) => {
             ) : (
                 <div>
                     <RadioForm mode={mode} handleMode={handleMode}/>
-
-                    <table className="medal-list-table">
-                        <thead>
-                            <tr>
-                                <th>Rank</th>
-                                <th>국가명</th>
-                                <th>🥇</th>
-                                <th>🥈</th>
-                                <th>🥉</th>
-                                <th>총 메달</th>
-                                <th>액션</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {sortMedalListByRank.map((m) => {
-                                return <MedalItem key={m.country} handleDeleteList={handleDeleteList} medalItem={m} />;
-                            })}
-                        </tbody>
-                    </table>
+                    <MedalTable sortMedalListByRank={sortMedalListByRank} handleDeleteList={handleDeleteList}/>
                 </div>
             )}
         </div>

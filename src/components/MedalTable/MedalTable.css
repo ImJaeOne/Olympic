@@ -1,0 +1,32 @@
+.medal-list-table {
+    margin-top: 20px;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.medal-list-table th,
+.medal-list-table td {
+    padding: 10px;
+}
+
+.medal-list-table thead th {
+    background-color: #76c4e3;
+    font-weight: bold;
+}
+
+.medal-list-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.medal-list-table tbody tr:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+
+.medal-list-table tbody tr:hover {
+    background-color: #ececec;
+}
