@@ -1,11 +1,29 @@
 export const sortByMode = (medalList, mode) => {
     return [...medalList].sort((a, b) => {
         if (mode === 'sortByGold') {
-            return b.gold - a.gold;
+            if (b.gold !== a.gold) {
+                return b.gold - a.gold;
+            } else {
+                if (b.silver !== a.silver) {
+                    return b.silver - a.silver;
+                } else if (b.bronze !== a.bronze) {
+                    return b.bronze - a.bronze;
+                } else {
+                    return a.country.localeCompare(b.country);
+                }
+            }
         } else if (mode === 'sortByTotal') {
             const totalA = a.gold + a.silver + a.bronze;
             const totalB = b.gold + b.silver + b.bronze;
-            return totalB - totalA;
+            if (totalB !== totalA) {
+                return totalB - totalA;
+            } else {
+                if (b.gold !== a.gold) {
+                    return b.gold - a.gold;
+                } else {
+                    return a.country.localeCompare(b.country);
+                }
+            }
         }
         return 0;
     });
