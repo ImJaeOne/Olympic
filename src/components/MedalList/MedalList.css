@@ -2,18 +2,7 @@
     margin-top: 20px;
 }
 
-[type='radio']{
-    appearance: none;
-}
 
-label span{
-    cursor: pointer;
-    font-weight: 600;
-}
-
-[type='radio']:checked + span {
-    color: #76c4e3; 
-}
 
 .medal-list-table {
     margin-top: 20px;

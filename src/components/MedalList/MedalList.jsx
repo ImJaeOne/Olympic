@@ -1,5 +1,6 @@
 import { React, useState } from 'react';
 import MedalItem from '../MedalItem/MedalItem.jsx';
+import RadioForm from '../RadioForm/RadioForm.jsx';
 import { sortByMode, sortByRank } from '../../utils/medalUtils';
 import './MedalList.css';
 
@@ -18,26 +19,7 @@ export const MedalList = ({ medalList, handleDeleteList }) => {
                 <div>아직 추가된 국가가 없습니다. 메달을 추적하세요!</div>
             ) : (
                 <div>
-                    <form>
-                        <label>
-                            <input
-                                type="radio"
-                                value="sortByGold"
-                                checked={mode === 'sortByGold'}
-                                onChange={handleMode}
-                            />
-                            <span>Gold</span>
-                        </label>
-                        <label>
-                            <input
-                                type="radio"
-                                value="sortByTotal"
-                                checked={mode === 'sortByTotal'}
-                                onChange={handleMode}
-                            />
-                            <span>Total</span>
-                        </label>
-                    </form>
+                    <RadioForm mode={mode} handleMode={handleMode}/>
 
                     <table className="medal-list-table">
                         <thead>
