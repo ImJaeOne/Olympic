@@ -52,6 +52,56 @@
   
 ![sort](https://github.com/user-attachments/assets/e3eeab7d-b305-4a87-a8f3-41fc7ad37c74)
 
+## 🧩 커스텀 훅: useMedalList
+이 프로젝트에서는 메달 목록을 관리하기 위해 useMedalList라는 커스텀 훅을 사용합니다. 이 훅은 메달 데이터의 추가, 수정, 삭제 기능과 localStorage와의 연동을 담당합니다.
+```javascript
+import { useMedalList } from './hooks/useMedalList';
+
+const MedalComponent = () => {
+    const { medalList, addMedal, updateMedal, deleteMedal } = useMedalList('localStorageKey');
+
+    const handleAddMedal = () => {
+        addMedal({ country: 'USA', gold: 1, silver: 0, bronze: 2 });
+    };
+
+    const handleUpdateMedal = () => {
+        updateMedal({ country: 'USA', gold: 2, silver: 1, bronze: 3 });
+    };
+
+    const handleDeleteMedal = () => {
+        deleteMedal('USA');
+    };
+
+    return (
+        <div>
+            <button onClick={handleAddMedal}>Add Medal</button>
+            <button onClick={handleUpdateMedal}>Update Medal</button>
+            <button onClick={handleDeleteMedal}>Delete Medal</button>
+
+            <ul>
+                {medalList.map((medal, index) => (
+                    <li key={index}>
+                        {medal.country}: Gold {medal.gold}, Silver {medal.silver}, Bronze {medal.bronze}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+```
+
+#### 주요 기능
+
+- addMedal(value): 새로운 medalList을 추가합니다. 이미 등록된 medalList라면 경고 메시지가 나타납니다.
+- updateMedal(value): 기존의 medalList을 수정합니다. 수정하려는 medalList가 존재하지 않으면 경고 메시지가 나타납니다.
+- deleteMedal(country): 해당 국가d의 medalList을 삭제합니다.
+- medalList: localStorage에 저장된 메달 리스트를 반환합니다.
+
+#### 문제 상황
+
+- 초기 값을 로컬스토리지의 값으로 설정하였는데 렌더링이 될 때마다 초기 값을 다시 설정하는 문제
+  [useState 초기값 설정 시 반복 실행 문제와 해결법](https://dlawi0108.tistory.com/48)
+
 
 ## 🚀 배포 및 실행 
 [Github Pages](https://imjaeone.github.io/OlympicMedalTracker/)
