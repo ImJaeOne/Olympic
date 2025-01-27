@@ -1,21 +1,10 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import './MedalForm.css';
 import MedalInput from '../MedalInput/MedalInput';
+import { useMedalInput } from '../../hooks/useMedalInput';
 
-const MedalForm = ({ handleSubmit }) => {
-    const [medalItem, setMedalItem] = useState({
-        country: '',
-        gold: 0,
-        silver: 0,
-        bronze: 0,
-    });
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        const setValueType = name === 'gold' || name === 'silver' || name === 'bronze' ? Number(value) : value.trim();
-        setMedalItem({ ...medalItem, [name]: setValueType });
-    };
-
+const MedalForm = ({ addMedal, updateMedal }) => {
+    const [medalItem, handleChange, resetForm] = useMedalInput();
     const validateForm = () => {
         if (!medalItem.country) {
             alert('국가명을 입력해주세요');
@@ -23,22 +12,19 @@ const MedalForm = ({ handleSubmit }) => {
         }
         return true;
     };
-
-    const handleForSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         if (!validateForm()) return;
         const action = e.nativeEvent.submitter.name;
-        handleSubmit(e, medalItem, action);
-        setMedalItem({
-            country: '',
-            gold: 0,
-            silver: 0,
-            bronze: 0,
-        });
+        if (action === 'add') {
+            addMedal(medalItem);
+        } else if (action === 'update') {
+            updateMedal(medalItem);
+        }
+        resetForm();
     };
-
     return (
-        <form onSubmit={handleForSubmit} className="medal-form">
+        <form onSubmit={handleSubmit} className="medal-form">
             <MedalInput medalItem={medalItem} name={'country'} handleChange={handleChange}>
                 국가명
             </MedalInput>

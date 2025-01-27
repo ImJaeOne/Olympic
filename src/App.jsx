@@ -7,18 +7,10 @@ import './App.css';
 function App() {
     const { medalList, addMedal, updateMedal, deleteMedal } = useMedalList('medalListStorage');
 
-    const handleSubmit = (e, value, action) => {
-        if (action === 'add') {
-            addMedal(value);
-        } else if (action === 'update') {
-            updateMedal(value);
-        }
-    };
-
     return (
-        <div className='app'>
-            <h2 className='header'>2024 파리 올림픽</h2>
-            <MedalForm handleSubmit={handleSubmit} />
+        <div className="app">
+            <h2 className="header">2024 파리 올림픽</h2>
+            <MedalForm addMedal={addMedal} updateMedal={updateMedal} />
             <MedalList handleDeleteList={deleteMedal} medalList={medalList} />
         </div>
     );

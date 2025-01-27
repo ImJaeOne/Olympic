@@ -8,7 +8,6 @@ export const setStorage = (key, value) => {
 
 export const getStorage = (key) => {
     try {
-        console.log('getStorage 실행!');
         const value = localStorage.getItem(key);
         return value ? JSON.parse(value) : null;
     } catch (err) {

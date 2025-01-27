@@ -34,8 +34,8 @@ export const sortByMode = (medalList, mode) => {
 };
 
 export const sortByRank = (sortedMedals, mode) => {
-    let rank = 1;
-    let rankSkip = 0;
+    let rank = 1; 
+    let rankSkip = 0; 
     let prevMedals = null;
 
     return sortedMedals.map((m, index) => {

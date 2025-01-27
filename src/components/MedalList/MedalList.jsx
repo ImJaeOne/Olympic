@@ -13,6 +13,7 @@ export const MedalList = ({ medalList, handleDeleteList }) => {
 
     const sortMedalListByMode = sortByMode(medalList, mode);
     const sortMedalListByRank = sortByRank(sortMedalListByMode, mode);
+
     return (
         <div className="medal-list-container">
             {medalList.length === 0 ? (

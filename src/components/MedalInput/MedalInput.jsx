@@ -17,3 +17,5 @@ const MedalInput = ({ children, medalItem, name, handleChange }) => {
 };
 
 export default MedalInput;
+
+
