@@ -54,41 +54,12 @@
 
 ## 🧩 커스텀 훅: useMedalList
 이 프로젝트에서는 메달 목록을 관리하기 위해 useMedalList라는 커스텀 훅을 사용합니다. 이 훅은 메달 데이터의 추가, 수정, 삭제 기능과 localStorage와의 연동을 담당합니다.
-```javascript
-import { useMedalList } from './hooks/useMedalList';
 
-const MedalComponent = () => {
-    const { medalList, addMedal, updateMedal, deleteMedal } = useMedalList('localStorageKey');
+#### useMedalList 훅 생성 이유
+React에서 UI를 그려주는 부분에 메달 추가, 삭제, 업데이트 로직이 포함되면 코드가 복잡해져 가독성이 떨어집니다. 
+이를 해결하기 위해, 해당 로직을 별도의 커스텀 훅(useMedalList)으로 분리하였습니다. 
+이렇게 UI와 로직을 분리함으로써, 가독성을 높이고 메달 데이터를 효율적으로 관리할 수 있게 되었습니다.
 
-    const handleAddMedal = () => {
-        addMedal({ country: 'USA', gold: 1, silver: 0, bronze: 2 });
-    };
-
-    const handleUpdateMedal = () => {
-        updateMedal({ country: 'USA', gold: 2, silver: 1, bronze: 3 });
-    };
-
-    const handleDeleteMedal = () => {
-        deleteMedal('USA');
-    };
-
-    return (
-        <div>
-            <button onClick={handleAddMedal}>Add Medal</button>
-            <button onClick={handleUpdateMedal}>Update Medal</button>
-            <button onClick={handleDeleteMedal}>Delete Medal</button>
-
-            <ul>
-                {medalList.map((medal, index) => (
-                    <li key={index}>
-                        {medal.country}: Gold {medal.gold}, Silver {medal.silver}, Bronze {medal.bronze}
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
-};
-```
 
 #### 주요 기능
 
