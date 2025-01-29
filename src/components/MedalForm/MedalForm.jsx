@@ -4,16 +4,8 @@ import { useMedalInput } from '../../hooks/useMedalInput';
 
 const MedalForm = ({ addMedal, updateMedal }) => {
     const [medalItem, handleChange, resetForm] = useMedalInput();
-    const validateForm = () => {
-        if (!medalItem.country) {
-            alert('국가명을 입력해주세요');
-            return false;
-        }
-        return true;
-    };
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!validateForm()) return;
         const action = e.nativeEvent.submitter.name;
         if (action === 'add') {
             addMedal(medalItem);
