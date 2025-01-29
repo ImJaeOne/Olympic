@@ -1,8 +1,8 @@
-import { React, useState } from 'react';
+import { useState } from 'react';
 import RadioForm from '../RadioForm/RadioForm.jsx';
 import MedalTable from '../MedalTable/MedalTable.jsx';
 import { sortByMode, sortByRank } from '../../utils/medalUtils';
-import './MedalList.css';
+import './medal-list.css';
 
 export const MedalList = ({ medalList, handleDeleteList }) => {
     const [mode, setMode] = useState('sortByGold');

@@ -1,6 +1,5 @@
-import React from 'react';
 import MedalItem from '../MedalItem/MedalItem';
-import './MedalTable.css'
+import './medal-table.css'
 
 export const MedalTable = ({sortMedalListByRank, handleDeleteList}) => {
     return (

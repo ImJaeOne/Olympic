@@ -1,5 +1,4 @@
-import { React } from 'react';
-import './MedalForm.css';
+import './medal-form.css';
 import MedalInput from '../MedalInput/MedalInput';
 import { useMedalInput } from '../../hooks/useMedalInput';
 

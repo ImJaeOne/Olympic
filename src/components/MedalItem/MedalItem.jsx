@@ -1,5 +1,4 @@
-import React from 'react';
-import './MedalItem.css'
+import './medal-item.css'
 export const MedalItem = ({ handleDeleteList, medalItem }) => {
     return (
         <tr key={medalItem.country}>

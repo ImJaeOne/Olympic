@@ -1,5 +1,4 @@
-import React from 'react';
-import './MedalInput.css';
+import './medal-input.css';
 
 const MedalInput = ({ children, medalItem, name, handleChange }) => {
     return (
