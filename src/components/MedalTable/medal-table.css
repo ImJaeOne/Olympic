@@ -30,3 +30,20 @@
 .medal-list-table tbody tr:hover {
     background-color: #ececec;
 }
+
+.medal-item-btn{
+    background-color: #76c4e3;
+    color: white;
+}
+
+.medal-item-btn:hover{
+    background-color: #58a8c8; 
+}
+
+.medal-item-btn:focus {
+    outline: none;
+}
+
+.medal-item-btn:active {
+    background-color: #3f8aa3;
+}

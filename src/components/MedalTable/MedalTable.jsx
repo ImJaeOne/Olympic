@@ -1,7 +1,6 @@
-import MedalItem from '../MedalItem/MedalItem';
-import './medal-table.css'
+import './medal-table.css';
 
-export const MedalTable = ({sortMedalListByRank, handleDeleteList}) => {
+export const MedalTable = ({ sortMedalListByRank, handleDeleteList }) => {
     return (
         <table className="medal-list-table">
             <thead>
@@ -16,8 +15,22 @@ export const MedalTable = ({sortMedalListByRank, handleDeleteList}) => {
                 </tr>
             </thead>
             <tbody>
-                {sortMedalListByRank.map((m) => {
-                    return <MedalItem key={m.country} handleDeleteList={handleDeleteList} medalItem={m} />;
+                {sortMedalListByRank.map((medalItem) => {
+                    return (
+                        <tr key={medalItem.country}>
+                            <td>{medalItem.rank}</td>
+                            <td>{medalItem.country}</td>
+                            <td>{medalItem.gold}</td>
+                            <td>{medalItem.silver}</td>
+                            <td>{medalItem.bronze}</td>
+                            <td>{medalItem.gold + medalItem.silver + medalItem.bronze}</td>
+                            <td>
+                                <button className="medal-item-btn" onClick={() => handleDeleteList(medalItem.country)}>
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                    );
                 })}
             </tbody>
         </table>
