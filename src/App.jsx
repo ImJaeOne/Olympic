@@ -5,7 +5,7 @@ import MedalList from './components/MedalList/MedalList.jsx';
 import './App.css';
 
 function App() {
-    const { medalList, addMedal, updateMedal, deleteMedal } = useMedalList('medalListStorage');
+    const { medalList, addMedal, updateMedal, deleteMedal } = useMedalList();
 
     return (
         <div className="app">

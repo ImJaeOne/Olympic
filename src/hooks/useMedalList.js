@@ -21,7 +21,7 @@ const validateMedalForm = (action, value, medalList) => {
     return true;
 };
 
-export const useMedalList = (key) => {
+export const useMedalList = (key = 'medalLists') => {
     const [medalList, setMedalList] = useState(() => {
         return getStorage(key) || [];
     });
