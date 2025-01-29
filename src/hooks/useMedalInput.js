@@ -10,12 +10,9 @@ export const useMedalInput = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        const setValueType =
-            name === 'gold' || name === 'silver' || name === 'bronze'
-                ? isNaN(Number(value))
-                    ? 0
-                    : Number(value) 
-                : value.trim();
+        const setValueType = name === 'country' ? value.trim() : isNaN(Number(value))
+        ? 0
+        : Number(value) ;
         setMedalItem({ ...medalItem, [name]: setValueType });
     };
 
