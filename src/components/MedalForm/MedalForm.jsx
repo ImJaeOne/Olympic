@@ -16,18 +16,10 @@ const MedalForm = ({ addMedal, updateMedal }) => {
     };
     return (
         <form onSubmit={handleSubmit} className="medal-form">
-            <MedalInput medalItem={medalItem} name={'country'} handleChange={handleChange}>
-                국가명
-            </MedalInput>
-            <MedalInput medalItem={medalItem} name={'gold'} handleChange={handleChange}>
-                금메달
-            </MedalInput>
-            <MedalInput medalItem={medalItem} name={'silver'} handleChange={handleChange}>
-                은메달
-            </MedalInput>
-            <MedalInput medalItem={medalItem} name={'bronze'} handleChange={handleChange}>
-                동메달
-            </MedalInput>
+            <MedalInput label={'국가명'} medalItem={medalItem} name={'country'} handleChange={handleChange}/>
+            <MedalInput label={'금메달'}medalItem={medalItem} name={'gold'} handleChange={handleChange}/>
+            <MedalInput label={'은메달'}medalItem={medalItem} name={'silver'} handleChange={handleChange}/>
+            <MedalInput label={'동메달'}medalItem={medalItem} name={'bronze'} handleChange={handleChange}/>
             <div className="medal-form-btn-wrap">
                 <button className="medal-form-btn" type="submit" name="add">
                     Add

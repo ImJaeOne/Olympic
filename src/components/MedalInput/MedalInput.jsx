@@ -1,17 +1,18 @@
 import './medal-input.css';
 
-const MedalInput = ({ children, medalItem, name, handleChange }) => {
+const MedalInput = ({ label, medalItem, name, handleChange }) => {
     return (
-        <div className="medal-form-input-wrap">
-            {children}
+        <label htmlFor={name} className="medal-form-input-wrap">
+            {label}
             <input
                 className="medal-form-input"
                 type="text"
+                id={name}
                 name={name}
                 value={medalItem[name]}
                 onChange={handleChange}
             />
-        </div>
+        </label>
     );
 };
 
